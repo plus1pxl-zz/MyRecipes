@@ -1,4 +1,6 @@
-﻿namespace MyRecipes.Web
+﻿using MyRecipes.Services.Data;
+
+namespace MyRecipes.Web
 {
     using System.Reflection;
 
@@ -8,7 +10,6 @@
     using MyRecipes.Data.Models;
     using MyRecipes.Data.Repositories;
     using MyRecipes.Data.Seeding;
-    using MyRecipes.Services.Data;
     using MyRecipes.Services.Mapping;
     using MyRecipes.Services.Messaging;
     using MyRecipes.Web.ViewModels;
@@ -63,7 +64,9 @@
 
             // Application services
             services.AddTransient<IEmailSender, NullMessageSender>();
-            services.AddTransient<ISettingsService, SettingsService>();
+            services.AddTransient<IGetCountsService, GetCountsService>();
+            services.AddTransient<ICategoriesService, CategoriesService>();
+            services.AddTransient<IRecipeService, RecipeService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

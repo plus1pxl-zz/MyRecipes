@@ -1,13 +1,13 @@
-﻿using System.Collections.Generic;
-
-namespace MyRecipes.Data.Models
+﻿namespace MyRecipes.Data.Models
 {
     using System;
+
+    using System.Collections.Generic;
+
     using MyRecipes.Data.Common.Models;
 
     public class Recipe : BaseDeletableModel<int>
     {
-
         public string Name { get; set; }
 
         public string Instructions { get; set; }
@@ -27,5 +27,7 @@ namespace MyRecipes.Data.Models
         public virtual Category Category { get; set; }
 
         public virtual ICollection<RecipeIngredient> Ingredients { get; set; } = new HashSet<RecipeIngredient>();
+
+        public virtual ICollection<Image> Images { get; set; } = new HashSet<Image>();
     }
 }
